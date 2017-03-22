@@ -162,13 +162,14 @@ function AudioSynthView() {
                         '<span name="OCTAVE_LABEL" value="' + i + '">' + (__octave + parseInt(i)) + '</span>' + (n.substr(1, 1) ? n.substr(1, 1) : '');
                     thisKey.appendChild(label);
                     thisKey.setAttribute('ID', 'KEY_' + n + ',' + i);
-                    thisKey.addEventListener(evtListener[0], (function(_temp) {
+                    thisKey.addEventListener(evtListener[0], (function(_temp, keyname) {
                         return function() {
+                            currentInstrument.handleKey(String.fromCharCode(keyname));	
                             fnPlayKeyboard({
                                 keyCode: _temp
                             });
                         }
-                    })(reverseLookup[n + ',' + i]));
+                    })(reverseLookup[n + ',' + i], reverseLookupText[n + ',' + i]));
                     visualKeyboard[n + ',' + i] = thisKey;
                     visualKeyboard.appendChild(thisKey);
                     iKeys++;

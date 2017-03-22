@@ -26,24 +26,6 @@ function ticAll(inst) {
 	}
 }
 
-const Keytar = {
-	keyboard: "q2w3er5t6y7ui9o0p[=]azsxcfvgbnjmk,l.",
-	strings: createStrings(36, keytarConcert),
-	ns: 36,
-
-	handleKey: function(keytyped) {
-		let idx = this.keyboard.indexOf(keytyped)
-		if (idx != -1) {
-			this.strings[idx].pluck()
-			console.log(keytarConcert(idx))
-		}
-	},
-
-	regenerate: function() {
-		console.log(select_base);
-		this.strings = createStrings(36, keytarConcert);
-	}
-}
 
 function createKeytar() {
 	this.keyboard = "q2w3er5t6y7ui9o0p[=]azsxcfvgbnjmk,l.";
@@ -51,6 +33,9 @@ function createKeytar() {
 	this.ns = 36;
 
 	this.handleKey = function(keytyped) {
+		if (keytyped >= 'A' && keytyped <= 'a') {
+			keytyped = keytyped.toLowerCase()
+		}
 		let idx = this.keyboard.indexOf(keytyped)
 		if (idx != -1) {
 			this.strings[idx].pluck()

@@ -23,8 +23,8 @@ scriptNode.onaudioprocess = function(e) {
 
 
 function run() {
-	var head = document.getElementsByTagName("h1")[0].innerText
-	currentInstrument = Keytar
+	var head = document.getElementsByTagName("h1")[0].innerText;
+	currentInstrument = new createKeytar();
 	source.connect(scriptNode);
   	scriptNode.connect(audioCtx.destination);
   	source.start();
