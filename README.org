@@ -1,4 +1,4 @@
 #+title: Pluck the String !
-This is little demo for *Karplus-Strong* Algorithm.
+This is a little demo of *Karplus-Strong* Algorithm.
 
 Try it out: [[https://kevinkwl.github.io/pluck-string][Demo]].
